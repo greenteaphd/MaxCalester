@@ -1,11 +1,12 @@
 # MaxCalester
 
+MACALESTER COLLEGE
+APRIL 2017
+
 Hello!
 
 Welcome to MaxCalester!
-
 MaxCalester is a program developed by three students at Macalester College: Ibou, Lang, and Andy.
-
 It's a restaurant recommender system based on a budget and total calorie
 
 Here's the context:
@@ -40,5 +41,4 @@ What are you waiting for? Run the program and happy eating!
 Best,
 
 The Development Team
-April 2017
-Macalester College
+

@@ -14,7 +14,6 @@ from MaxCalesterProgramSubway import*
 from MaxCalesterProgramTacoBell import*
 
 
-
 def restaurant_picker():
     """"This is the function that is responsible for jump starting the program. """
     print("Welcome to MaxCalester - a program designed to give you a selection of items to buy at fast food restaurants")
