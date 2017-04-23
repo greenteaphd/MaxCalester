@@ -1,11 +1,12 @@
 # MaxCalester
-A restaurant recommender system based on a budget and total calorie
 
 Hello!
 
 Welcome to MaxCalester!
 
 MaxCalester is a program developed by three students at Macalester College: Ibou, Lang, and Andy.
+
+It's a restaurant recommender system based on a budget and total calorie
 
 Here's the context:
 
