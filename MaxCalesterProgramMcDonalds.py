@@ -1,0 +1,98 @@
+#   MaxCalester Program McDonalds
+#   Designed by: Andy Han
+#   Data By: Ibou Dieye and Lang Li
+#   March 29th, 2017
+#   Macalester College
+#   COMP 221 - Algorithm Design and Analysis
+
+
+import csv
+
+mcdonalds_best_combo = {}
+mcdonalds_best_combo_price_calorie = {}  # This dictionary will have different price point as its keys and the list of
+# the best combination items for the price point as its values.
+
+# Below, we create the various lists of name, prices, calories, and ratios the program will add to as data is imported.
+
+mcdonalds_name = []  # List of the names that are on the McDonalds Menu.
+mcdonalds_price = []  # List of the prices of said items.
+mcdonalds_calorie = []  # List of the calories of said items.
+mcdonalds_ratio = []  # List of price-to-calorie ratios of said items.
+
+# Below are the lines of code that are responsible for the import of csv data into data points Python can work with.
+with open('final_mcdonalds.csv', 'r') as f:
+    reader = csv.reader(f, delimiter=',')
+    for row in reader:
+        mcdonalds_name.append(row[0])
+        mcdonalds_price.append(float(row[1]))
+        mcdonalds_calorie.append(float(row[2]))
+        mcdonalds_ratio.append(float(row[3]))
+
+# Now, we then make dictionaries that match the various variables to each other in order to identify things later on.
+
+ratio_price_dict = dict(zip(mcdonalds_ratio, mcdonalds_price))
+ratio_name_dict = dict(zip(mcdonalds_ratio, mcdonalds_name))
+
+name_calorie_dict = dict(zip(mcdonalds_name, mcdonalds_calorie))
+name_price_dict = dict(zip(mcdonalds_name, mcdonalds_price))
+
+calorie_price_dict = dict(zip(mcdonalds_calorie, mcdonalds_price))
+calorie_name_dict = dict(zip(mcdonalds_calorie, mcdonalds_name))
+
+# We make sorted lists of the ratio, calorie, and price to ensure the smoothness of the program.
+
+sorted_ratio_list = sorted(mcdonalds_ratio, reverse=True)
+sorted_calorie_list = sorted(mcdonalds_calorie, reverse=True)
+sorted_price_list = sorted(mcdonalds_price, reverse=True)
+
+mcdonalds_item_list = []  # The list of items you should buy to maximize caloric count.
+
+
+def mcdonalds_main_driver(budget):
+    if mcdonalds_best_combo.get(budget):
+        return print("For the budget of $" + str(budget) +
+                     ", here is the list of items you should buy to maximize how much calorie you are getting: "
+                     + str(mcdonalds_best_combo.get(budget)))
+    else:
+        greedy_algorithm(budget)
+
+
+def greedy_algorithm(budget):
+    length = len(sorted_ratio_list)  # The length of the ratio_list to determine the number of comparisons to make
+    total_calorie_count = 0  # A running tally of the calorie count based on the items purchased
+    total_price = 0  # A running tally of how much you spent so far
+
+    if budget < sorted_price_list[length - 1]:  # If budget is less than the price of the cheapest item of the list...
+        print("Your budget is not big enough to buy anything from the mcdonalds menu we have. Tough luck!")
+        return
+
+    if calorie_price_dict.get(sorted_calorie_list[0]) <= budget <= ratio_price_dict.get(sorted_ratio_list[1]) * 2:
+        mcdonalds_item_list.append("1 " + calorie_name_dict.get(sorted_calorie_list[0]) + " for the price of $"
+                         + str(calorie_price_dict.get(sorted_calorie_list[0])) +
+                         " with a calorie count of " + str(sorted_calorie_list[0]))
+
+        mcdonalds_best_combo.update({budget: mcdonalds_item_list})
+        mcdonalds_best_combo_price_calorie[budget] = [total_price, total_calorie_count]
+
+        return
+
+    for i in range(length):
+        current_ratio = sorted_ratio_list[i]
+        item_name = ratio_name_dict.get(current_ratio)
+        item_price = ratio_price_dict.get(current_ratio)
+
+        if total_price + item_price <= budget:  # If what you already spent plus the price of the item you want to purchase is less than the budget...
+            total_price = total_price + item_price  # Add the desired item's price on to the total price tally
+            total_calorie_count = total_calorie_count + name_calorie_dict.get(
+                item_name)  # Add the desired item's caloric count to the total caloric tally
+            mcdonalds_item_list.append("1 " + item_name + " for the price of $" + str(item_price) +
+                             " with a calorie count of " + str(
+                name_calorie_dict.get(item_name)))  # Add the item to the final list
+
+    mcdonalds_best_combo[budget] = mcdonalds_item_list  # Add the list of items that is best at the price point to dictionary so that future searches are O(1)
+    mcdonalds_best_combo_price_calorie[budget] = [total_price, total_calorie_count]
+
+
+
+
+
