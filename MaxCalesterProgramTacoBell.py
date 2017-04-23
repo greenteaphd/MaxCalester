@@ -1,6 +1,6 @@
 #   MaxCalester Program Tacobell
-#   Designed by: Andy Han
-#   Data By: Ibou Dieye and Lang Li
+#   Developed By: Andy Han
+#   Data Provided By: Ibou Dieye and Lang Li
 #   March 29th, 2017
 #   Macalester College
 #   COMP 221 - Algorithm Design and Analysis
@@ -81,7 +81,7 @@ def greedy_algorithm(budget):
         item_name = ratio_name_dict.get(current_ratio)
         item_price = ratio_price_dict.get(current_ratio)
 
-        if total_price + item_price <= budget:  # If what you already spent plus the price of the item you want to purchase is less than the budget...
+        if total_price + item_price <= budget:  # If what you spent already plus the price of the item you want to purchase is less than the budget...
             total_price = total_price + item_price  # Add the desired item's price on to the total price tally
             total_calorie_count = total_calorie_count + name_calorie_dict.get(
                 item_name)  # Add the desired item's caloric count to the total caloric tally

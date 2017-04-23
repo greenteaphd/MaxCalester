@@ -1,6 +1,6 @@
 #   MaxCalester Program Subway
-#   Designed by: Andy Han
-#   Data By: Ibou Dieye and Lang Li
+#   Developed By: Andy Han
+#   Data Provided By: Ibou Dieye and Lang Li
 #   March 29th, 2017
 #   Macalester College
 #   COMP 221 - Algorithm Design and Analysis
