@@ -31,8 +31,7 @@ The menu items' names belong to the companies.
 
 Now, on the chance that you would like to add more restaurants to this program, you will need to
 add a new csv file containing the new restaurant's data set that follows the format other csv files are in and create a new Python
-file for that specific restaurant. Please refer to the existing files as references as the code will stay mostly the name.
-You will need to do mostly name changes and text changes.
+file for that specific restaurant. Please refer to the existing files as references as the code will stay mostly the name. You will need to do mostly name changes and text changes.
 
 The program features two solutions: a greedy algorithm solution and a dynamic programming solution. They are comparable in performance.
 
