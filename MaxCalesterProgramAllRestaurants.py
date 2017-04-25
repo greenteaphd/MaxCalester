@@ -10,7 +10,9 @@
 import csv
 
 all_restaurants_best_combo = {}
-all_restaurants_best_combo_price_calorie = {}  # This dictionary will have different price point as its keys
+all_restaurants_best_combo_price_calorie = {}
+
+# The above dictionary will have different price point as its keys
 # and the list of the best combination items for the price point as its values.
 
 # Below, we create the various lists of name, prices, calories, and ratios the program will add to as data is imported.
@@ -46,7 +48,6 @@ calorie_name_dict = dict(zip(all_restaurants_calorie, all_restaurants_name))
 # We make sorted lists of the ratio, calorie, and price to ensure the smoothness of the program.
 
 sorted_ratio_list = sorted(all_restaurants_ratio, reverse=True)
-sorted_calorie_list = sorted(all_restaurants_calorie, reverse=True)
 sorted_price_list = sorted(all_restaurants_price, reverse=True)
 
 all_restaurants_item_list = []  # The list of items you should buy to maximize caloric count.

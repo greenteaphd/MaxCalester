@@ -1,6 +1,6 @@
 #   MaxCalester Program Chipotle
 #   Developed By: Andy Han
-#   Data Provided By: Ibou Dieye and Lang Li
+#   Data Provided By: Ibrahima Dieye and Lang Li
 #   March 29th, 2017
 #   Macalester College
 #   COMP 221 - Algorithm Design and Analysis
@@ -9,8 +9,10 @@
 import csv
 
 chipotle_best_combo = {}
-chipotle_best_combo_price_calorie = {}  # This dictionary will have different price point as its keys and the list of
-# the best combination items for the price point as its values.
+chipotle_best_combo_price_calorie = {}
+
+# The above dictionary will have different price point as its keys
+# and the list of the best combination items for the price point as its values.
 
 # Below, we create the various lists of name, prices, calories, and ratios the program will add to as data is imported.
 
@@ -20,12 +22,15 @@ chipotle_calorie = []  # List of the calories of said items.
 chipotle_ratio = []  # List of price-to-calorie ratios of said items.
 
 # Below are the lines of code that are responsible for the import of csv data into data points Python can work with.
+# A great thing about our data set is that they are already well-organized and sorted by the calorie-price ratio.
+# However, we do have sorting in place in case the data isn't perfect as in a real life, data will always be added.
+
 with open('final_chipotle.csv', 'r') as f:
     reader = csv.reader(f, delimiter=',')
     for row in reader:
         chipotle_name.append(row[0])
         chipotle_price.append(float(row[1]))
-        chipotle_calorie.append(int(row[2]))
+        chipotle_calorie.append(float(row[2]))
         chipotle_ratio.append(float(row[3]))
 
 # Now, we then make dictionaries that match the various variables to each other in order to identify things later on.
@@ -42,14 +47,13 @@ calorie_name_dict = dict(zip(chipotle_calorie, chipotle_name))
 # We make sorted lists of the ratio, calorie, and price to ensure the smoothness of the program.
 
 sorted_ratio_list = sorted(chipotle_ratio, reverse=True)
-sorted_calorie_list = sorted(chipotle_calorie, reverse=True)
 sorted_price_list = sorted(chipotle_price, reverse=True)
 
 chipotle_item_list = []  # The list of items you should buy to maximize caloric count.
 
 
 def chipotle_main_driver(budget):
-    if chipotle_best_combo.get(budget):
+    if chipotle_best_combo.get(budget):  # Checks to see if a value already exists in the dictionary. Saves time.
         return print("For the budget of $" + str(budget) +
                      ", here is the list of items you should buy to maximize how much calorie you are getting: "
                      + str(chipotle_best_combo.get(budget)))
@@ -71,16 +75,19 @@ def greedy_algorithm(budget):
         item_name = ratio_name_dict.get(current_ratio)
         item_price = ratio_price_dict.get(current_ratio)
 
-        if total_price + item_price <= budget:  # If what you already spent plus the price of the item you want to purchase is less than the budget...
+        # If what you already spent plus the price of the item you want to purchase is less than the budget.
+        if total_price + item_price <= budget:
             total_price = total_price + item_price  # Add the desired item's price on to the total price tally
-            total_calorie_count = total_calorie_count + name_calorie_dict.get(
-                item_name)  # Add the desired item's caloric count to the total caloric tally
-            chipotle_item_list.append("1 " + item_name + " for the price of $" + str(item_price) +
-                             " with a calorie count of " + str(
-                name_calorie_dict.get(item_name)))  # Add the item to the final list
+            total_calorie_count = total_calorie_count + name_calorie_dict.get(item_name)
+            # Add the desired item's caloric count to the total caloric tally
+            chipotle_item_list.append("1 " + item_name + " for the price of $" + str(item_price)
+                                      + " with a calorie count of " + str(name_calorie_dict.get(item_name)))
+            # Add the item to the final list
 
-    chipotle_best_combo[budget] = chipotle_item_list  # Add the list of items that is best at the price point to dictionary so that future searches are O(1)
+    # We are adding the list of items that is best at the price point to the dict so that future searches are O(1)
+    chipotle_best_combo[budget] = chipotle_item_list
     chipotle_best_combo_price_calorie[budget] = [total_price, total_calorie_count]
+
 
 
 
