@@ -69,16 +69,6 @@ def greedy_algorithm(budget):
         print("Your budget is not big enough to buy anything from the Subway menu we have. Tough luck!")
         return
 
-    if calorie_price_dict.get(sorted_calorie_list[0]) <= budget <= ratio_price_dict.get(sorted_ratio_list[1]) * 2:
-        subway_item_list.append("1 " + calorie_name_dict.get(sorted_calorie_list[0]) + " for the price of $"
-                         + str(calorie_price_dict.get(sorted_calorie_list[0])) +
-                         " with a calorie count of " + str(sorted_calorie_list[0]))
-
-        subway_best_combo.update({budget: subway_item_list})
-        subway_best_combo_price_calorie[budget] = [total_price, total_calorie_count]
-
-        return
-
     for i in range(length):
         current_ratio = sorted_ratio_list[i]
         item_name = ratio_name_dict.get(current_ratio)
