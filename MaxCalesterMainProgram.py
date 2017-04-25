@@ -123,6 +123,5 @@ def restaurant_picker():
             print("You typed an invalid command. Try again!")
             restaurant_picker()
 
-
 restaurant_picker()
 
