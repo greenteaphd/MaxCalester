@@ -1,4 +1,4 @@
-#   MaxCalester Main Program
+#   MaxCalester - Main Program
 #   Developed By: Andy Han
 #   Data Provided By: Ibrahima Dieye and Lang Li
 #   March 29th, 2017
@@ -6,6 +6,8 @@
 #   COMP 221 - Algorithm Design and Analysis
 
 import time
+
+# Importing other Python files
 from MaxCalesterProgramAllRestaurants import*
 from MaxCalesterProgramChipotle import*
 from MaxCalesterProgramDominos import*
@@ -46,7 +48,6 @@ def restaurant_picker():
         print("It took %s seconds to calculate this recommendation." % (time.time() - start_time))
 
         run_again()
-
 
     elif user_input == "NO":  # If the user does not want a cross-selection of restaurants.
         print("You chose NO. Would you like to choose the single restaurant you would like a recommendation from or"
@@ -149,16 +150,17 @@ def restaurant_picker():
 
 
 def run_again():
+    """ This function asks the user if they want to run the program again. """
     print("-------------------------------------------------------------------------")
     more_choices = input(str("Would like to run the program again? Type YES or NO. "))
     if more_choices == "YES":
         restaurant_picker()
     elif more_choices == "NO":
-        print ("Thank you for using our program. Bye!")
+        print("Thank you for using our program. Bye!")
     else:
         print("Invalid command!")
         run_again()
 
 
-restaurant_picker()
+restaurant_picker()  # This starts the entire program.
 
