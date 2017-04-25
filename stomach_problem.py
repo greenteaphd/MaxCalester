@@ -77,7 +77,7 @@ def stomach(items, budget):
     print("Your total calorie count is " + str(total_calorie) + " and total price is $" + str(total_price))
 
 start_time = time.time()
-stomach(calorie_price_seq, 5)
+stomach(calorie_price_seq, 30)
 print("It took %s seconds to get the optimal." % (time.time() - start_time))
 
 ## Takes 36 seconds if I print the item prices and calories

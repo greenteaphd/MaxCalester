@@ -5,7 +5,6 @@
 #   Macalester College
 #   COMP 221 - Algorithm Design and Analysis
 
-
 import csv
 
 mcdonalds_best_combo = {}
@@ -53,6 +52,7 @@ mcdonalds_item_list = []  # The list of items you should buy to maximize caloric
 
 
 def mcdonalds_main_driver(budget):
+    """ This is what starts this program. It first checks if the budget has been previously searched before."""
     if mcdonalds_best_combo.get(budget):  # Checks to see if a value already exists in the dictionary. Saves time.
         return print("For the budget of $" + str(budget) +
                      ", here is the list of items you should buy to maximize how much calorie you are getting: "
@@ -62,6 +62,7 @@ def mcdonalds_main_driver(budget):
 
 
 def greedy_algorithm(budget):
+    """ This function formulates a list of items that would make the best combo by using the greedy property."""
     length = len(sorted_ratio_list)  # The length of the ratio_list to determine the number of comparisons to make
     total_calorie_count = 0  # A running tally of the calorie count based on the items purchased
     total_price = 0  # A running tally of how much you spent so far
@@ -87,7 +88,4 @@ def greedy_algorithm(budget):
     # We are adding the list of items that is best at the price point to the dict so that future searches are O(1)
     mcdonalds_best_combo[budget] = mcdonalds_item_list
     mcdonalds_best_combo_price_calorie[budget] = [total_price, total_calorie_count]
-
-
-
 

@@ -47,6 +47,7 @@ calorie_name_dict = dict(zip(all_restaurants_calorie, all_restaurants_name))
 
 # We make sorted lists of the ratio, calorie, and price to ensure the smoothness of the program.
 
+
 sorted_ratio_list = sorted(all_restaurants_ratio, reverse=True)
 sorted_price_list = sorted(all_restaurants_price, reverse=True)
 
@@ -54,6 +55,7 @@ all_restaurants_item_list = []  # The list of items you should buy to maximize c
 
 
 def all_restaurants_main_driver(budget):
+    """ This is what starts this program. It first checks if the budget has been previously searched before."""
     if all_restaurants_best_combo.get(budget):  # Checks to see if a value already exists in the dictionary. Saves time.
         return print("For the budget of $" + str(budget) +
                      ", here is the list of items you should buy to maximize how much calorie you are getting: "
@@ -63,6 +65,7 @@ def all_restaurants_main_driver(budget):
 
 
 def greedy_algorithm(budget):
+    """ This function formulates a list of items that would make the best combo by using the greedy property."""
     length = len(sorted_ratio_list)  # The length of the ratio_list to determine the number of comparisons to make
     total_calorie_count = 0  # A running tally of the calorie count based on the items purchased
     total_price = 0  # A running tally of how much you spent so far
@@ -88,7 +91,6 @@ def greedy_algorithm(budget):
     # We are adding the list of items that is best at the price point to the dict so that future searches are O(1)
     all_restaurants_best_combo[budget] = all_restaurants_item_list
     all_restaurants_best_combo_price_calorie[budget] = [total_price, total_calorie_count]
-
 
 
 
