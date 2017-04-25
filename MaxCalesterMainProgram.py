@@ -45,6 +45,9 @@ def restaurant_picker():
         print("----------------------------------------------------------------------------")
         print("It took %s seconds to calculate this recommendation." % (time.time() - start_time))
 
+        run_again()
+
+
     elif user_input == "NO":  # If the user does not want a cross-selection of restaurants.
         print("You chose NO. Would you like to choose the single restaurant you would like a recommendation from or"
               "the restaurant with the best recommendation in terms of calorie count?")
@@ -141,6 +144,21 @@ def restaurant_picker():
         else:
             print("You typed an invalid command. Try again!")  # We are well aware that users make mistakes.
             restaurant_picker()
+
+        run_again()
+
+
+def run_again():
+    print("-------------------------------------------------------------------------")
+    more_choices = input(str("Would like to run the program again? Type YES or NO. "))
+    if more_choices == "YES":
+        restaurant_picker()
+    elif more_choices == "NO":
+        print ("Thank you for using our program. Bye!")
+    else:
+        print("Invalid command!")
+        run_again()
+
 
 restaurant_picker()
 
