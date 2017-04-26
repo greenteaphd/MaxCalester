@@ -45,8 +45,8 @@ name_price_dict = dict(zip(all_restaurants_name, all_restaurants_price))
 calorie_price_dict = dict(zip(all_restaurants_calorie, all_restaurants_price))
 calorie_name_dict = dict(zip(all_restaurants_calorie, all_restaurants_name))
 
-# We make sorted lists of the ratio, calorie, and price to ensure the smoothness of the program.
 
+# We make sorted lists of the ratio, calorie, and price to ensure the smoothness of the program.
 
 sorted_ratio_list = sorted(all_restaurants_ratio, reverse=True)
 sorted_price_list = sorted(all_restaurants_price, reverse=True)
@@ -91,6 +91,4 @@ def greedy_algorithm(budget):
     # We are adding the list of items that is best at the price point to the dict so that future searches are O(1)
     all_restaurants_best_combo[budget] = all_restaurants_item_list
     all_restaurants_best_combo_price_calorie[budget] = [total_price, total_calorie_count]
-
-
 
