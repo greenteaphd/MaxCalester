@@ -24,7 +24,14 @@ def restaurant_picker():
     print("You get to choose the restaurant or we can pick for you! Or, we can give you a combo of all restaurants!")
     print("The restaurants in our database are: Subway, Chipotle, Domino's, McDonalds, and Taco Bell. Let's go!")
     print("----------------------------------------------------------------------------")
-    budget = int(input("What is your budget? "))
+    budget = (input("What is your budget?  "))
+
+    try:
+        budget = float(budget)
+    except ValueError:
+        print("You entered something that is not a number! Try again. ")
+        run_again()
+
     user_input = str(input("Would you like to have a recommendation based on all of the items in our database"
                            " or just items from a single restaurant? "
                            "Type YES for a cross-selection and NO for a single-selection. "))
@@ -50,13 +57,20 @@ def restaurant_picker():
         run_again()
 
     elif user_input == "NO":  # If the user does not want a cross-selection of restaurants.
+
         print("You chose NO. Would you like to choose the single restaurant you would like a recommendation from or"
               "the restaurant with the best recommendation in terms of calorie count?")
-        restaurant_choice = input(str("Please type BEST for the best pick or the name of the restaurant "
-                                      "you would like to choose from. Please, all lower case and no spaces. "))
-        if restaurant_choice == "BEST" or "subway" or "tacobell" or "mcdonalds" or "chipotle" or "dominos":
-            # spelling and case really matter. No capitalization. No spaces.
 
+        restaurant_choice = input(str("Please type BEST for the best option or the name of the restaurant "
+
+                                      "you would like to choose from. Please, all lower case and no spaces. "))
+        choices = ["BEST", "subway", "tacobell", "mcdonalds", "chipotle", "dominos"]
+
+        if restaurant_choice not in choices:
+            print("You typed an invalid command! Try again.")
+            run_again()
+            # spelling and case really matter. No capitalization. No spaces.
+        else:
             start_time = time.time()  # We don't want to count the time the user spends typing.
 
             # What's happening below is that we run the budget for every restaurant and
@@ -142,10 +156,8 @@ def restaurant_picker():
             print("----------------------------------------------------------------------------")
             print("It took %s seconds to calculate this recommendation." % (time.time() - start_time))
 
-        else:
-            print("You typed an invalid command. Try again!")  # We are well aware that users make mistakes.
-            restaurant_picker()
-
+    else:
+        print("You typed an invalid command!")
         run_again()
 
 
