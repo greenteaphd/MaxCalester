@@ -43,7 +43,7 @@ name_price_dict = dict(zip(dominos_name, dominos_price))
 calorie_price_dict = dict(zip(dominos_calorie, dominos_price))
 calorie_name_dict = dict(zip(dominos_calorie, dominos_name))
 
-# We make sorted lists of the ratio, calorie, and price to ensure the smoothness of the program.
+# We make sorted lists of the ratio and price to ensure the smoothness of the program.
 
 
 sorted_ratio_list = sorted(dominos_ratio, reverse=True)

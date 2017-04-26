@@ -43,7 +43,7 @@ name_price_dict = dict(zip(mcdonalds_name, mcdonalds_price))
 calorie_price_dict = dict(zip(mcdonalds_calorie, mcdonalds_price))
 calorie_name_dict = dict(zip(mcdonalds_calorie, mcdonalds_name))
 
-# We make sorted lists of the ratio, calorie, and price to ensure the smoothness of the program.
+# We make sorted lists of the ratio and price to ensure the smoothness of the program.
 
 sorted_ratio_list = sorted(mcdonalds_ratio, reverse=True)
 sorted_price_list = sorted(mcdonalds_price, reverse=True)

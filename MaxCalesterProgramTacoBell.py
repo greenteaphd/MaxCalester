@@ -43,7 +43,7 @@ name_price_dict = dict(zip(tacobell_name, tacobell_price))
 calorie_price_dict = dict(zip(tacobell_calorie, tacobell_price))
 calorie_name_dict = dict(zip(tacobell_calorie, tacobell_name))
 
-# We make sorted lists of the ratio, calorie, and price to ensure the smoothness of the program.
+# We make sorted lists of the ratio and price to ensure the smoothness of the program.
 
 sorted_ratio_list = sorted(tacobell_ratio, reverse=True)
 sorted_price_list = sorted(tacobell_price, reverse=True)

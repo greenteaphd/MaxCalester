@@ -45,7 +45,7 @@ name_price_dict = dict(zip(subway_name, subway_price))
 calorie_price_dict = dict(zip(subway_calorie, subway_price))
 calorie_name_dict = dict(zip(subway_calorie, subway_name))
 
-# We make sorted lists of the ratio, calorie, and price to ensure the smoothness of the program.
+# We make sorted lists of the ratio and price to ensure the smoothness of the program.
 
 sorted_ratio_list = sorted(subway_ratio, reverse=True)
 sorted_price_list = sorted(subway_price, reverse=True)

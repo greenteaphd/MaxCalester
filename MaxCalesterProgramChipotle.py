@@ -43,7 +43,7 @@ name_price_dict = dict(zip(chipotle_name, chipotle_price))
 calorie_price_dict = dict(zip(chipotle_calorie, chipotle_price))
 calorie_name_dict = dict(zip(chipotle_calorie, chipotle_name))
 
-# We make sorted lists of the ratio, calorie, and price to ensure the smoothness of the program.
+# We make sorted lists of the ratio and price to ensure the smoothness of the program.
 
 sorted_ratio_list = sorted(chipotle_ratio, reverse=True)
 sorted_price_list = sorted(chipotle_price, reverse=True)
