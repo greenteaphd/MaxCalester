@@ -5,7 +5,7 @@
 #   Macalester College
 #   COMP 221 - Algorithm Design and Analysis
 
-# Importing other Python files
+# Importing other Python files and time library
 
 import time
 
