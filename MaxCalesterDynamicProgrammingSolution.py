@@ -1,5 +1,5 @@
 #   MaxCalester - Main Program
-#   Developed By: Ibrahima Dieye
+#   Developed By: Ibrahima Dieye and Andy Han
 #   Data Provided By: Andy Han and Lang Li
 #   April 26th, 2017
 #   Macalester College
