@@ -1,13 +1,14 @@
 #   MaxCalester - Main Program
 #   Developed By: Andy Han
 #   Data Provided By: Ibrahima Dieye and Lang Li
-#   March 29th, 2017
+#   April 26th, 2017
 #   Macalester College
 #   COMP 221 - Algorithm Design and Analysis
 
+# Importing other Python files
+
 import time
 
-# Importing other Python files
 from MaxCalesterProgramAllRestaurants import*
 from MaxCalesterProgramChipotle import*
 from MaxCalesterProgramDominos import*
@@ -26,11 +27,18 @@ def restaurant_picker():
     print("----------------------------------------------------------------------------")
     budget = (input("What is your budget?  "))
 
+    # Catches invalid user inputs
     try:
         budget = float(budget)
     except ValueError:
         print("You entered something that is not a number! Try again. ")
         run_again()
+
+    sorted_price = sorted(all_restaurants_price)  # Sorted list in ascending order of all the prices of items.
+
+    if float(budget) < sorted_price[0]:
+        print("You cannot purchase anything from our menu with your budget. Please bring more money!")
+        return
 
     user_input = str(input("Would you like to have a recommendation based on all of the items in our database"
                            " or just items from a single restaurant? "
@@ -38,11 +46,11 @@ def restaurant_picker():
     print("----------------------------------------------------------------------------")
 
     if user_input == "YES":  # If the user wants a cross-selection of items.
-        start_time = time.time()  # The program also measures the execution time of the program
+        start_time = time.time()
 
         all_restaurants_main_driver(budget)  # Calls the main driver of the Python file for this option
         all_restaurant_max_cal = all_restaurants_best_combo_price_calorie[budget][1]  # The total calorie count
-        all_restaurant_max_price = all_restaurants_best_combo_price_calorie[budget][0] # The total price
+        all_restaurant_max_price = all_restaurants_best_combo_price_calorie[budget][0]  # The total price
 
         print("At your budget of $" + str(budget) +
               ", to get the most bang for your buck in terms of highest net calorie count, ")
@@ -64,6 +72,7 @@ def restaurant_picker():
         restaurant_choice = input(str("Please type BEST for the best option or the name of the restaurant "
 
                                       "you would like to choose from. Please, all lower case and no spaces. "))
+
         choices = ["BEST", "subway", "tacobell", "mcdonalds", "chipotle", "dominos"]
 
         if restaurant_choice not in choices:
@@ -73,7 +82,7 @@ def restaurant_picker():
         else:
             start_time = time.time()  # We don't want to count the time the user spends typing.
 
-            # What's happening below is that we run the budget for every restaurant and
+            # What's happening below is that we test the budget for every restaurant and
             # See which restaurant has the best combo that would yield the highest calorie count
 
             subway_main_driver(budget)
@@ -111,7 +120,7 @@ def restaurant_picker():
             # We cannot emphasize how case sensitive the program is.
             # The conditionals below reflect what the program will say if our winner is a certain restaurant.
 
-            if restaurant_dictionary.get(max_cal) == "subway" or restaurant_choice == "subway":
+            if  restaurant_choice == "subway" or restaurant_dictionary.get(max_cal) == "subway":
                 print("At your budget of $" + str(budget) + ", to get the highest net calorie count, ")
                 print("You should go to Subway and purchase the following items to obtain a total caloric count of ")
                 print(str(subway_max_cal) + " calories" + " for the price of $" + str(subway_max_price))
@@ -119,7 +128,7 @@ def restaurant_picker():
                 print(*subway_item_list, sep="\n")
                 print("Thank you for using our program and happy eating!")
 
-            elif restaurant_dictionary.get(max_cal) == "mcdonalds" or restaurant_choice == "mcdonalds":
+            elif restaurant_choice == "mcdonalds" or restaurant_dictionary.get(max_cal) == "mcdonalds":
                 print("At your budget of $" + str(budget) + ", to get the highest net calorie count, ")
                 print(
                     "You should go to McDonalds and purchase the following items to obtain a total caloric count of ")
@@ -128,7 +137,7 @@ def restaurant_picker():
                 print(*mcdonalds_item_list, sep="\n")
                 print("Thank you for using our program and happy eating!")
 
-            elif restaurant_dictionary.get(max_cal) == "chipotle" or restaurant_choice == "chipotle":
+            elif restaurant_choice == "chipotle" or restaurant_dictionary.get(max_cal) == "chipotle":
                 print("At your budget of $" + str(budget) + ", to get the highest net calorie count, ")
                 print("You should go to Chipotle and purchase the following items to obtain a total caloric count of ")
                 print(str(chipotle_max_cal) + " calories" + " for the price of $" + str(chipotle_max_price))
@@ -136,7 +145,7 @@ def restaurant_picker():
                 print(*chipotle_item_list, sep="\n")
                 print("Thank you for using our program and happy eating!")
 
-            elif restaurant_dictionary.get(max_cal) == "dominos" or restaurant_choice == "dominos":
+            elif restaurant_choice == "dominos" or restaurant_dictionary.get(max_cal) == "dominos":
                 print("At your budget of $" + str(
                     budget) + ", to get the highest net calorie count, ")
                 print("You should go to Domino's and purchase the following items to obtain a total caloric count of ")
@@ -145,7 +154,7 @@ def restaurant_picker():
                 print(*dominos_item_list, sep="\n")
                 print("Thank you for using our program and happy eating!")
 
-            elif restaurant_dictionary.get(max_cal) == "tacobell" or restaurant_choice == "tacobell":
+            elif restaurant_choice == "tacobell" or restaurant_dictionary.get(max_cal) == "tacobell":
                 print("At your budget of $" + str(budget) + ", to get the highest net calorie count, ")
                 print("You should go to Taco Bell and purchase the following items to obtain a total caloric count of ")
                 print(str(tacobell_max_cal) + " calories" + " for the price of $" + str(tacobell_max_price))
