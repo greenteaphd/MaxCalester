@@ -11,13 +11,12 @@ mcdonalds_calorie = []  # List of the calories of said items.
 mcdonalds_ratio = []  # List of price-to-calorie ratios of said items.
 
 # Below are the lines of code that are responsible for the import of csv data into data points Python can work with.
-with open('final_mcdonalds.csv', 'r') as f:
+with open('final_all_items.csv', 'r') as f:
     reader = csv.reader(f, delimiter=',')
     for row in reader:
         mcdonalds_name.append(row[0])
         mcdonalds_price.append(float(row[1]))
         mcdonalds_calorie.append(float(row[2]))
-        mcdonalds_ratio.append(float(row[3]))
 
 # Now, we then make dictionaries that match the various variables to each other in order to identify things later on.
 
@@ -76,9 +75,24 @@ def stomach(items, budget):
               str(price) + " dollars")
     print("Your total calorie count is " + str(total_calorie) + " and total price is $" + str(total_price))
 
-start_time = time.time()
-stomach(calorie_price_seq, 100)
-print("It took %s seconds to get the optimal." % (time.time() - start_time))
+
+def budgettest(budget):
+    start_time = time.time()
+    stomach(calorie_price_seq, budget)
+    print("It took %s seconds to get the optimal." % (time.time() - start_time))
+    print("---------------------------------------------------------")
+
+budgettest(10)
+budgettest(20)
+budgettest(30)
+budgettest(40)
+budgettest(50)
+# budgettest(60)
+# budgettest(60)
+# budgettest(70)
+# budgettest(80)
+# budgettest(90)
+# budgettest(100)
 
 ## Takes 36 seconds if I print the item prices and calories
 ## If I only print the total number of calories, it takes 3 seconds:

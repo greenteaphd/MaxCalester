@@ -9,12 +9,12 @@
 
 import time
 
-from MaxCalesterProgramAllRestaurants import*
-from MaxCalesterProgramChipotle import*
-from MaxCalesterProgramDominos import*
-from MaxCalesterProgramMcDonalds import*
-from MaxCalesterProgramSubway import*
-from MaxCalesterProgramTacoBell import*
+from MaxCalesterAllRestaurantsGreedy import*
+from MaxCalesterChipotleGreedy import*
+from MaxCalesterDominosGreedy import*
+from MaxCalesterMcDonaldsGreedy import*
+from MaxCalesterSubwayGreedy import*
+from MaxCalesterTacoBellGreedy import*
 
 
 def restaurant_picker():
@@ -178,6 +178,7 @@ def run_again():
         restaurant_picker()
     elif more_choices == "NO":
         print("Thank you for using our program. Bye!")
+        return
     else:
         print("Invalid command!")
         run_again()
