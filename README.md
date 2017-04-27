@@ -8,14 +8,14 @@ Hello!
 
 Welcome to MaxCalester!
 MaxCalester is a program developed by three students at Macalester College: Ibou, Lang, and Andy.
-It's a restaurant recommender system that gives recommendations that will yield the highest total calorie count from the recommended items
+It's a fast-food restaurant recommender system that gives recommendations that will yield the highest total calorie count from the recommended items of the recommended restaurant
 while keeping in mind a budget constraint. 
 
 Here's the context:
 
-Imagine yourself on a cool late evening. You are having a LAN party with four other friends playing Starcraft.
+Imagine yourself on a cool late evening. You are having a LAN party with four other friends and playing Starcraft.
 Suddenly, you and your group of friends get hungry. It's time for a midnight run. However, you all have strict budgets
-and Want to go to a restaurant that will give you the most food or in other words - most calories.
+and want to go to a restaurant that will give you the most food or in other words - most calories.
 How will you know which restaurant to go to and which items to purchase?
 
 This is the Stomach Problem and the MaxCalester (pun intended) Program will solve this problem. Given a budget, the program
@@ -23,13 +23,13 @@ Will pump out which restaurants to go and which items to buy. Currently, we have
 
 The program features two solutions: a greedy algorithm solution and a dynamic programming solution. Either run the file titled MaxCalesterDynamicProgrammingSolution 
 to run the dynamic programming solution or the MaxCalesterMainProgramGreedy file to run the greedy algorithm solution. Both are console-based interactions. They will work
-without any further set up. 
+without any further set up. We recommend the greedy solution for its speed, but cannot guarantee 100% accuracy. We recommend the dynamic programming solution for 100% accuracy, but cannot guarantee a quick recommendation. 
 
 To run the greedy algorithm solution program, you simply need to run the MaxCalesterMainProgramGreedy. The program will incorporate the other csv files and Python files that are in this package.
 Each restaurant has a corresponding csv and Python files. You do not need to worry about the files in order to run the program. To run the dynamic programming solution, you simply need to run
-the MxCalesterDynamicProgrammingSolution. 
+the MaxCalesterDynamicProgrammingSolution. 
 
-Each csv file contains the list items from a restaurant's menu with their prices and calorie counts. They were taken from online sources, most directly from the restaurant.
+Each csv file contains the list items from a restaurant's menu with their prices and calorie counts. They were taken from online sources, most directly from the restaurants.
 
 The menu items' names belong to the companies. 
 
