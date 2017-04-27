@@ -34,8 +34,9 @@ Now, on the chance that you would like to add more restaurants to this program, 
 add a new csv file containing the new restaurant's data set that follows the format other csv files are in and create a new Python
 file for that specific restaurant. Please refer to the existing files as references as the code will stay mostly the name. You will need to do mostly name changes and text changes.
 
-The program features two solutions: a greedy algorithm solution and a dynamic programming solution. They are comparable in performances. 
-What are you waiting for? Run the program and happy eating!
+The program features two solutions: a greedy algorithm solution and a dynamic programming solution. Either run the file titled MaxCalesterDynamicProgrammingSolution 
+to run the dynamic programming solution or the MaxCalesterMainProgramGreedy file to run the greedy algorithm solution. Both are console-based interactions. They will work
+without any further set up. Have fun! What are you waiting for? Run the program and happy eating!
 
 Best,
 
