@@ -7,6 +7,9 @@
 #   Questions? Contact us at dhan@macalester.edu
 
 import csv
+import time
+
+# start_time = time.time()
 
 tacobell_best_combo = {}
 tacobell_best_combo_price_calorie = {}
@@ -40,6 +43,7 @@ with open('final_tacobell.csv', 'r') as f:
         tacobell_calorie.append(float(row[2]))
 
 # Below, the calorie to price ratio is created and each ratio is added to the list created earlier.
+
 for i in range(len(tacobell_name)): # a ratio for every item
     ratio = tacobell_calorie[i] / tacobell_price[i]
     tacobell_ratio.append(ratio)
@@ -59,6 +63,17 @@ ratio_price_dict = dict(zip(sorted_ratio_list, sorted_price_list))
 ratio_name_dict = dict(zip(sorted_ratio_list, sorted_name_list))
 name_calorie_dict = dict(zip(sorted_name_list, sorted_calorie_list))
 
+# average_time = 0
+#
+# for i in range(100000):
+#     final_time = (time.time() - start_time)
+#     average_time = average_time + final_time
+#
+# average_time = average_time / 100000
+#
+#
+# print(average_time)
+
 
 def tacobell_main_driver(budget):
     """ This is what starts this program."""
@@ -67,6 +82,8 @@ def tacobell_main_driver(budget):
 
 def greedy_algorithm(budget):
     """ This function creates a list of items that would make the best combo by using the greedy property."""
+    start_time = time.time()
+
     sorted_price = sorted(tacobell_price)
 
     if budget < sorted_price[0]:  # Base Case: If the budget is less than the price of the cheapest item of the list.
@@ -88,8 +105,10 @@ def greedy_algorithm(budget):
             total_calorie_count = total_calorie_count + name_calorie_dict.get(item_name)
             # Above, add the desired item's caloric count to the total caloric tally
             tacobell_item_list.append("1 " + item_name + " for the price of $" + str(item_price) +
-                                             " with a calorie count of " + str(
+                                      " with a calorie count of " + str(
                 name_calorie_dict.get(item_name)))  # Add the item to the final list. We initialized this list earlier.
+        else:
+            break
 
     # We are adding the list of items that is best at the price point to the dict so that future searches are O(1)
     # In addition, the Main Program imports these variables below when coming up with the recommendation.
@@ -97,10 +116,33 @@ def greedy_algorithm(budget):
     tacobell_best_combo[budget] = tacobell_item_list
     tacobell_best_combo_price_calorie[budget] = [total_price, total_calorie_count]
 
+    final_time = (time.time() - start_time)
+    return final_time
+
 # --------------------------------------------------- END OF PROGRAM ---------------------------------------------------
 
 
+def thousand_test(budget):
+    average_time = 0
+    for i in range(10000):
+        time_took = greedy_algorithm(budget)
+        average_time = average_time + time_took
 
+    final_average = average_time/10000
+
+    print(str(final_average))
+
+
+thousand_test(10)
+thousand_test(20)
+thousand_test(30)
+thousand_test(40)
+thousand_test(50)
+thousand_test(60)
+thousand_test(70)
+thousand_test(80)
+thousand_test(90)
+thousand_test(100)
 
 
 

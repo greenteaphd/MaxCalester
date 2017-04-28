@@ -7,6 +7,8 @@
 #   Questions? Contact us at dhan@macalester.edu
 
 import csv
+import time
+
 
 all_restaurants_best_combo = {}
 all_restaurants_best_combo_price_calorie = {}
@@ -67,6 +69,8 @@ def all_restaurants_main_driver(budget):
 
 def greedy_algorithm(budget):
     """ This function creates a list of items that would make the best combo by using the greedy property."""
+    start_time = time.time()
+
     sorted_price = sorted(all_restaurants_price)
 
     if budget < sorted_price[0]:  # Base Case: If the budget is less than the price of the cheapest item of the list.
@@ -90,6 +94,8 @@ def greedy_algorithm(budget):
             all_restaurants_item_list.append("1 " + item_name + " for the price of $" + str(item_price) +
                                              " with a calorie count of " + str(
                 name_calorie_dict.get(item_name)))  # Add the item to the final list. We initialized this list earlier.
+        else:
+            break
 
     # We are adding the list of items that is best at the price point to the dict so that future searches are O(1)
     # In addition, the Main Program imports these variables below when coming up with the recommendation.
@@ -97,8 +103,10 @@ def greedy_algorithm(budget):
     all_restaurants_best_combo[budget] = all_restaurants_item_list
     all_restaurants_best_combo_price_calorie[budget] = [total_price, total_calorie_count]
 
-# --------------------------------------------------- END OF PROGRAM ---------------------------------------------------
+    final_time = (time.time() - start_time)
+    return final_time
 
+# --------------------------------------------------- END OF PROGRAM ---------------------------------------------------
 
 
 

@@ -75,18 +75,14 @@ def stomach(items, budget):
               str(price) + " dollars")
     print("Your total calorie count is " + str(total_calorie) + " and total price is $" + str(total_price))
 
-
 def budgettest(budget):
     start_time = time.time()
     stomach(calorie_price_seq, budget)
     print("It took %s seconds to get the optimal." % (time.time() - start_time))
     print("---------------------------------------------------------")
 
-budgettest(10)
-budgettest(20)
-budgettest(30)
-budgettest(40)
-budgettest(50)
+budgettest(5)
+
 # budgettest(60)
 # budgettest(60)
 # budgettest(70)
