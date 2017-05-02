@@ -11,7 +11,7 @@ mcdonalds_calorie = []  # List of the calories of said items.
 mcdonalds_ratio = []  # List of price-to-calorie ratios of said items.
 
 # Below are the lines of code that are responsible for the import of csv data into data points Python can work with.
-with open('final_all_items.csv', 'r') as f:
+with open('final_mcdonalds.csv', 'r') as f:
     reader = csv.reader(f, delimiter=',')
     for row in reader:
         mcdonalds_name.append(row[0])

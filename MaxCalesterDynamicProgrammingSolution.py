@@ -24,8 +24,8 @@ restaurant_ratio = []  # List of price-to-calorie ratios of said items.
 def restaurant_picker():
     """"This is the function that is responsible for jump starting the program. """
     print("Welcome to MaxCalester - a program that solves your fast-food restaurants dilemma!")
-    print("Given a budget, the program yields a list of items that would yield the highest calorie count.")
-    print("Our rationale is the most calorie you get, more value you get for your $$$!")
+    print("Given a budget, the program yields a list of items that will have the highest calorie count.")
+    print("Our rationale is, the most calorie you get, more value you get for your $$$!")
     print("You get to choose the restaurant or we can pick for you! Or, we can give you a combo of all restaurants!")
     print("The restaurants in our database are: Subway, Chipotle, Domino's, McDonalds, and Taco Bell. Let's go!")
     print("----------------------------------------------------------------------------")
@@ -155,7 +155,8 @@ def stomach(items, budget, calorie_dictionary):
     # Return the calorie of the most "nutritious" subsequence of the first i
     # elements in items whose prices sum to no more than j.
 
-    start_time = time.time() # Starts the time to measure how fast the algorithm is.
+    start_time = time.time()  # Starts the time to measure how fast the algorithm is.
+
     @lru_cache(maxsize=None)
     def best_value(i, j):
         if i == 0: return 0

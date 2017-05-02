@@ -7,8 +7,6 @@
 #   Questions? Contact us at dhan@macalester.edu
 
 import csv
-import time
-
 
 all_restaurants_best_combo = {}
 all_restaurants_best_combo_price_calorie = {}
@@ -31,7 +29,6 @@ all_restaurants_item_list = []  # The list of items you should buy to maximize c
 
 # The csv file is a list of items. Each row has a item name, item's price, and item's calorie.
 # Items are added to three different lists based on the csv import.
-
 
 # CSV File Import
 with open('final_all_items.csv', 'r') as f:
@@ -69,8 +66,6 @@ def all_restaurants_main_driver(budget):
 
 def greedy_algorithm(budget):
     """ This function creates a list of items that would make the best combo by using the greedy property."""
-    start_time = time.time()
-
     sorted_price = sorted(all_restaurants_price)
 
     if budget < sorted_price[0]:  # Base Case: If the budget is less than the price of the cheapest item of the list.
@@ -102,9 +97,6 @@ def greedy_algorithm(budget):
 
     all_restaurants_best_combo[budget] = all_restaurants_item_list
     all_restaurants_best_combo_price_calorie[budget] = [total_price, total_calorie_count]
-
-    final_time = (time.time() - start_time)
-    return final_time
 
 # --------------------------------------------------- END OF PROGRAM ---------------------------------------------------
 

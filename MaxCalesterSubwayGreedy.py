@@ -1,4 +1,4 @@
-#   MaxCalester Program - subway
+#   MaxCalester Program - Subway
 #   Developed By: Andy Han
 #   Data Provided By: Ibrahima Dieye and Lang Li
 #   April 26th, 2017
@@ -88,10 +88,11 @@ def greedy_algorithm(budget):
             total_calorie_count = total_calorie_count + name_calorie_dict.get(item_name)
             # Above, add the desired item's caloric count to the total caloric tally
             subway_item_list.append("1 " + item_name + " for the price of $" + str(item_price) +
-                                             " with a calorie count of " + str(
+                                    " with a calorie count of " + str(
                 name_calorie_dict.get(item_name)))  # Add the item to the final list. We initialized this list earlier.
         else:
             break
+
     # We are adding the list of items that is best at the price point to the dict so that future searches are O(1)
     # In addition, the Main Program imports these variables below when coming up with the recommendation.
 

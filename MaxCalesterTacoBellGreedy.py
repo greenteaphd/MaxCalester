@@ -63,17 +63,6 @@ ratio_price_dict = dict(zip(sorted_ratio_list, sorted_price_list))
 ratio_name_dict = dict(zip(sorted_ratio_list, sorted_name_list))
 name_calorie_dict = dict(zip(sorted_name_list, sorted_calorie_list))
 
-# average_time = 0
-#
-# for i in range(100000):
-#     final_time = (time.time() - start_time)
-#     average_time = average_time + final_time
-#
-# average_time = average_time / 100000
-#
-#
-# print(average_time)
-
 
 def tacobell_main_driver(budget):
     """ This is what starts this program."""
@@ -120,29 +109,6 @@ def greedy_algorithm(budget):
     return final_time
 
 # --------------------------------------------------- END OF PROGRAM ---------------------------------------------------
-
-
-def thousand_test(budget):
-    average_time = 0
-    for i in range(10000):
-        time_took = greedy_algorithm(budget)
-        average_time = average_time + time_took
-
-    final_average = average_time/10000
-
-    print(str(final_average))
-
-
-thousand_test(10)
-thousand_test(20)
-thousand_test(30)
-thousand_test(40)
-thousand_test(50)
-thousand_test(60)
-thousand_test(70)
-thousand_test(80)
-thousand_test(90)
-thousand_test(100)
 
 
 
