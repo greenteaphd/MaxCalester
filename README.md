@@ -19,7 +19,7 @@ and want to go to a restaurant that will give you the most food or in other word
 How will you know which restaurant to go to and which items to purchase?
 
 This is the Stomach Problem and the MaxCalester (pun intended) Program will solve this problem. Given a budget, the program
-Will pump out which restaurants to go and which items to buy. Currently, we have five awesome restaurants: Chipotle, Domino's, McDonalds, Subway, and Taco Bell.
+will pump out which restaurants to go and which items to buy. Currently, we have five awesome restaurants: Chipotle, Domino's, McDonalds, Subway, and Taco Bell.
 
 The program features two solutions: a greedy algorithm solution and a dynamic programming solution. Either run the file titled MaxCalesterDynamicProgrammingSolution 
 to run the dynamic programming solution or the MaxCalesterMainProgramGreedy file to run the greedy algorithm solution. Both are console-based interactions. They will work

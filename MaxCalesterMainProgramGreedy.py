@@ -19,7 +19,7 @@ from MaxCalesterTacoBellGreedy import*
 
 def restaurant_picker():
     """"This is the function that is responsible for jump starting the program. """
-    print("Welcome to MaxCalester - a program that solves your fast-food restaurants dilemma!")
+    print("Welcome to MaxCalester - a greedy algorithm program that solves your fast-food restaurants dilemma!")
     print("Given a budget, the program yields a list of items that will have the highest calorie count.")
     print("Our rationale is, the most calorie you get, more value you get for your $$$!")
     print("You get to choose the restaurant or we can pick for you! Or, we can give you a combo of all restaurants!")

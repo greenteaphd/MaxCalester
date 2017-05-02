@@ -23,7 +23,7 @@ restaurant_ratio = []  # List of price-to-calorie ratios of said items.
 
 def restaurant_picker():
     """"This is the function that is responsible for jump starting the program. """
-    print("Welcome to MaxCalester - a program that solves your fast-food restaurants dilemma!")
+    print("Welcome to MaxCalester - a dynamic programming program that solves your fast-food restaurants dilemma!")
     print("Given a budget, the program yields a list of items that will have the highest calorie count.")
     print("Our rationale is, the most calorie you get, more value you get for your $$$!")
     print("You get to choose the restaurant or we can pick for you! Or, we can give you a combo of all restaurants!")
@@ -192,7 +192,7 @@ def stomach(items, budget, calorie_dictionary):
     print("-----------------------------------------------------------------------------")
     print("Your total calorie count is " + str(total_calorie) + " calories and total price is $" + str(total_price))
     print("It took %s seconds to deliver you this recommendation." % (time.time() - start_time))
-    print("Thank you for using our program have a nice meal!")
+    print("Thank you for using our program and have a nice meal!")
     run_again()
 
 restaurant_picker()  # This starts the entire program.
